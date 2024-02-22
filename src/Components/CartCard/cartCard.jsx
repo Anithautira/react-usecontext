@@ -8,7 +8,7 @@ const CartCard = (props) => {
     const { product } = props;
     const [count, setCount] = useState(1);
     const [subtotal, setSubtotal] = useState(product.price);
-
+   
     function increaseQuantity() {
         setCount((count) => count += 1);
     }
@@ -30,12 +30,13 @@ const CartCard = (props) => {
     const removingItemFromCart = (item) => {
         removeFromCart(item);
     };
-
+   
     useEffect(() => {
         setSubtotal((subtotal) => product.price * count);
         updateSubtotal(product, count);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [count]);
-
+     
 
     // useEffect(() => {
     //     updateSubtotalValue();
@@ -68,6 +69,7 @@ const CartCard = (props) => {
             </div>
         </div>
     );
+   
 }
 
 export default CartCard;
